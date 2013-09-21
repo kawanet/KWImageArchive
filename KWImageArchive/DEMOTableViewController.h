@@ -1,5 +1,5 @@
 //
-//  DEMOAppDelegate.h
+//  DEMOTableViewController.h
 //  KWImageArchive
 //
 //  Created by Yusuke Kawasaki on 2013/09/21.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DEMOAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface DEMOTableViewController : UITableViewController
 
 @end

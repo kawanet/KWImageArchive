@@ -17,7 +17,10 @@
 		1DC07B1317ED806B00D147E2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B1217ED806B00D147E2 /* Default@2x.png */; };
 		1DC07B1517ED806C00D147E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B1417ED806C00D147E2 /* Default-568h@2x.png */; };
 		1DC07B1817ED806C00D147E2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B1617ED806C00D147E2 /* MainStoryboard.storyboard */; };
-		1DC07B1B17ED806C00D147E2 /* DEMOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC07B1A17ED806C00D147E2 /* DEMOViewController.m */; };
+		1DC07B2B17ED810400D147E2 /* KWImageArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC07B2A17ED810400D147E2 /* KWImageArchive.m */; };
+		1DC07B2E17ED84F700D147E2 /* DEMOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC07B2D17ED84F700D147E2 /* DEMOTableViewController.m */; };
+		1DC07B3417EDA19B00D147E2 /* iconic.zip in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B3317EDA19B00D147E2 /* iconic.zip */; };
+		BD2D817B135C4886A51D1BEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90BE844D4158450C90557746 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +38,13 @@
 		1DC07B1217ED806B00D147E2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1DC07B1417ED806C00D147E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1DC07B1717ED806C00D147E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		1DC07B1917ED806C00D147E2 /* DEMOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DEMOViewController.h; sourceTree = "<group>"; };
-		1DC07B1A17ED806C00D147E2 /* DEMOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DEMOViewController.m; sourceTree = "<group>"; };
+		1DC07B2917ED810400D147E2 /* KWImageArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWImageArchive.h; sourceTree = "<group>"; };
+		1DC07B2A17ED810400D147E2 /* KWImageArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWImageArchive.m; sourceTree = "<group>"; };
+		1DC07B2C17ED84F700D147E2 /* DEMOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOTableViewController.h; sourceTree = "<group>"; };
+		1DC07B2D17ED84F700D147E2 /* DEMOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOTableViewController.m; sourceTree = "<group>"; };
+		1DC07B3317EDA19B00D147E2 /* iconic.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = iconic.zip; sourceTree = "<group>"; };
+		90BE844D4158450C90557746 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE31A2A74E0B48F48CD012BF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 				1DC07AFF17ED806B00D147E2 /* UIKit.framework in Frameworks */,
 				1DC07B0117ED806B00D147E2 /* Foundation.framework in Frameworks */,
 				1DC07B0317ED806B00D147E2 /* CoreGraphics.framework in Frameworks */,
+				BD2D817B135C4886A51D1BEA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +68,8 @@
 				1DC07B0417ED806B00D147E2 /* KWImageArchive */,
 				1DC07AFD17ED806B00D147E2 /* Frameworks */,
 				1DC07AFC17ED806B00D147E2 /* Products */,
+				1DC07B2817ED810400D147E2 /* src */,
+				EE31A2A74E0B48F48CD012BF /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +87,7 @@
 				1DC07AFE17ED806B00D147E2 /* UIKit.framework */,
 				1DC07B0017ED806B00D147E2 /* Foundation.framework */,
 				1DC07B0217ED806B00D147E2 /* CoreGraphics.framework */,
+				90BE844D4158450C90557746 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,12 +95,13 @@
 		1DC07B0417ED806B00D147E2 /* KWImageArchive */ = {
 			isa = PBXGroup;
 			children = (
+				1DC07B3317EDA19B00D147E2 /* iconic.zip */,
 				1DC07B0D17ED806B00D147E2 /* DEMOAppDelegate.h */,
 				1DC07B0E17ED806B00D147E2 /* DEMOAppDelegate.m */,
 				1DC07B1617ED806C00D147E2 /* MainStoryboard.storyboard */,
-				1DC07B1917ED806C00D147E2 /* DEMOViewController.h */,
-				1DC07B1A17ED806C00D147E2 /* DEMOViewController.m */,
 				1DC07B0517ED806B00D147E2 /* Supporting Files */,
+				1DC07B2C17ED84F700D147E2 /* DEMOTableViewController.h */,
+				1DC07B2D17ED84F700D147E2 /* DEMOTableViewController.m */,
 			);
 			path = KWImageArchive;
 			sourceTree = "<group>";
@@ -107,6 +120,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1DC07B2817ED810400D147E2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1DC07B2917ED810400D147E2 /* KWImageArchive.h */,
+				1DC07B2A17ED810400D147E2 /* KWImageArchive.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DC07B1E17ED806C00D147E2 /* Build configuration list for PBXNativeTarget "KWImageArchive" */;
 			buildPhases = (
+				EE82A82A451C4CA096B1C52B /* Check Pods Manifest.lock */,
 				1DC07AF717ED806B00D147E2 /* Sources */,
 				1DC07AF817ED806B00D147E2 /* Frameworks */,
 				1DC07AF917ED806B00D147E2 /* Resources */,
+				658D027753814A3E8549C08F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,10 +188,44 @@
 				1DC07B1317ED806B00D147E2 /* Default@2x.png in Resources */,
 				1DC07B1517ED806C00D147E2 /* Default-568h@2x.png in Resources */,
 				1DC07B1817ED806C00D147E2 /* MainStoryboard.storyboard in Resources */,
+				1DC07B3417EDA19B00D147E2 /* iconic.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		658D027753814A3E8549C08F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE82A82A451C4CA096B1C52B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1DC07AF717ED806B00D147E2 /* Sources */ = {
@@ -176,7 +234,8 @@
 			files = (
 				1DC07B0B17ED806B00D147E2 /* main.m in Sources */,
 				1DC07B0F17ED806B00D147E2 /* DEMOAppDelegate.m in Sources */,
-				1DC07B1B17ED806C00D147E2 /* DEMOViewController.m in Sources */,
+				1DC07B2B17ED810400D147E2 /* KWImageArchive.m in Sources */,
+				1DC07B2E17ED84F700D147E2 /* DEMOTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,10 +319,12 @@
 		};
 		1DC07B1F17ED806C00D147E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE31A2A74E0B48F48CD012BF /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KWImageArchive/KWImageArchive-Prefix.pch";
 				INFOPLIST_FILE = "KWImageArchive/KWImageArchive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -271,10 +332,12 @@
 		};
 		1DC07B2017ED806C00D147E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE31A2A74E0B48F48CD012BF /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KWImageArchive/KWImageArchive-Prefix.pch";
 				INFOPLIST_FILE = "KWImageArchive/KWImageArchive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -299,6 +362,7 @@
 				1DC07B2017ED806C00D147E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
