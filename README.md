@@ -26,10 +26,14 @@ open source icon set licensed under CC BY-SA.
 ## INSTALLATION
 
 ```rb:Podfile
-pod 'KWImageArchive'
+pod 'KWImageArchive', :git => 'https://github.com/kawanet/KWImageArchive.git'
 ```
 
-## AUTHOR 
+## DEPENDENCY
+
+https://github.com/pixelglow/zipzap
+
+## AUTHOR
 
 Yusuke Kawasaki http://www.kawa.net/
 
