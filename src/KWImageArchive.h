@@ -10,8 +10,6 @@
 
 @interface KWImageArchive : NSObject
 
-@property NSMutableDictionary *cache;
-
 - (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr;
 - (void)loadArchiveWithURL:(NSURL *)url error:(NSError **)errorPtr;
 

@@ -11,6 +11,7 @@
 
 @implementation KWImageArchive
 
+NSMutableDictionary *_cache;
 ZZArchive *_archive;
 NSDictionary *_entries;
 NSArray *_names;
@@ -24,12 +25,6 @@ NSURL *_pathToURL(NSString *path) {
         url = [NSURL URLWithString:path relativeToURL:url];
     }
     return url;
-}
-
-- (id)init {
-    self = [super init];
-    self.cache = [[NSMutableDictionary alloc] init];
-    return self;
 }
 
 - (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr {
@@ -49,6 +44,7 @@ NSURL *_pathToURL(NSString *path) {
         dict[entry.fileName] = entry;
         [array addObject:entry.fileName];
     }
+    
     _entries = [NSDictionary dictionaryWithDictionary:dict];
     _names = [NSArray arrayWithArray:array];
 }
@@ -72,8 +68,13 @@ NSURL *_pathToURL(NSString *path) {
 }
 
 - (UIImage *)imageForName:(NSString*)name {
+    // create empty dictionary if not found
+    if (!_cache) {
+        _cache = [NSMutableDictionary dictionary];
+    }
+    
     // check cached image available
-    UIImage *cache = self.cache[name];
+    UIImage *cache = _cache[name];
     if (cache) return cache;
     
     // restore image
@@ -82,7 +83,8 @@ NSURL *_pathToURL(NSString *path) {
     UIImage *image = [UIImage imageWithData:data];
     if (!image) return nil;
     
-    self.cache[name] =image;
+    // store result to cache
+    _cache[name] = image;
     return image;
 }
 
