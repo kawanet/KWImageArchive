@@ -10,8 +10,11 @@ KWImageArchive loads image files archived in ZIP file.
 ```
 
 ```obj-c
+KWImageArchive *archive = [[KWImageArchive alloc] init];
+
 NSError *err = nil;
-KWImageArchive *archive = [KWImageArchive archiveWithPath:@"iconic.zip" error:&err];
+[archive loadArchiveWithPath:@"iconic.zip" error:&err];
+
 UIImage *image = [archive imageForName:@"aperture_32x32.png"];
 ```
 

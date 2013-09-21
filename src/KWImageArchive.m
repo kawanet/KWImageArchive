@@ -7,6 +7,7 @@
 //
 
 #import "KWImageArchive.h"
+#import <zipzap/zipzap.h>
 
 @implementation KWImageArchive
 
@@ -19,32 +20,28 @@ NSDictionary *_dictionary;
     return self;
 }
 
-+ (instancetype)archiveWithPath:(NSString *)path error:(NSError **)errorPtr {
-    return [[self alloc] initWithPath:path error:errorPtr];
+- (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr {
+    NSURL *url;
+    if ([path characterAtIndex:0] == '/') {
+        url = [NSURL fileURLWithPath:path isDirectory:NO];
+    } else {
+        url = [[NSBundle mainBundle] resourceURL];
+        url = [NSURL URLWithString:path relativeToURL:url];
+    }
+    [self loadArchiveWithURL:url error:errorPtr];
 }
 
-+ (instancetype)archiveWithURL:(NSURL *)url error:(NSError **)errorPtr {
-    return [[self alloc] initWithURL:url error:errorPtr];
-}
-
-- (id)initWithPath:(NSString *)path error:(NSError **)errorPtr {
-    NSURL *resourceURL = [[NSBundle mainBundle] resourceURL];
-    NSURL *url = [NSURL URLWithString:path relativeToURL:resourceURL];
-    return [self initWithURL:url error:errorPtr];
-}
-
-- (id)initWithURL:(NSURL *)url error:(NSError **)errorPtr {
-    self = [self init];
+- (void)loadArchiveWithURL:(NSURL *)url error:(NSError **)errorPtr {
     _archive = [ZZArchive archiveWithContentsOfURL:url];
-    [_archive load:errorPtr];
+    BOOL loaded = [_archive load:errorPtr];
+    if (!loaded) return;
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     for(ZZArchiveEntry *entry in _archive.entries) {
-        [dict setObject:entry forKey:entry.fileName];
+        if (!entry) continue;
+        dict[entry.fileName] = entry;
     }
     _dictionary = [NSDictionary dictionaryWithDictionary:dict];
-    
-    return self;
 }
 
 - (NSUInteger)count {
@@ -70,6 +67,7 @@ NSDictionary *_dictionary;
     NSData *data = [self dataForName:name];
     if (!data) return nil;
     UIImage *image = [UIImage imageWithData:data];
+    if (!image) return nil;
     
     self.cache[name] =image;
     return image;

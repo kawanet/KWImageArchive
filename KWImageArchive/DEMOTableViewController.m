@@ -19,9 +19,11 @@ KWImageArchive *archive;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     NSError *err = nil;
-    archive = [KWImageArchive archiveWithPath:@"iconic.zip" error:&err];
+    archive = [[KWImageArchive alloc] init];
+    [archive loadArchiveWithPath:@"iconic.zip" error:&err];
+    
     if (err) {
         NSLog(@"%@", err);
     }
@@ -39,10 +41,14 @@ KWImageArchive *archive;
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    // filename
     NSString *name = [archive nameAtIndex:indexPath.item];
     cell.textLabel.text = name;
-    cell.imageView.image = [archive imageForName:name];
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    // image
+    UIImage *image = [archive imageForName:name];
+    cell.imageView.image = image;
+    cell.textLabel.enabled = !!image;
     
     return cell;
 }
