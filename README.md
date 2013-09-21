@@ -1,9 +1,7 @@
 KWImageArchive
 ==============
 
-KWImageArchive loads image files archived in ZIP file.
-
-## SYNOPSYS
+KWImageArchive loads image files stored in a ZIP file.
 
 ```obj-c
 #import "KWImageArchive.h"
