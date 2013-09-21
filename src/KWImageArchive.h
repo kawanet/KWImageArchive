@@ -14,8 +14,9 @@
 
 - (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr;
 - (void)loadArchiveWithURL:(NSURL *)url error:(NSError **)errorPtr;
-- (NSUInteger)count;
-- (NSString *)nameAtIndex:(NSUInteger)index;
+
+- (NSArray *)allNames;
+
 - (NSData *)dataForName:(NSString*)name;
 - (UIImage *)imageForName:(NSString*)name;
 

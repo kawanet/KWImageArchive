@@ -12,7 +12,8 @@
 @implementation KWImageArchive
 
 ZZArchive *_archive;
-NSDictionary *_dictionary;
+NSDictionary *_entries;
+NSArray *_names;
 
 - (id)init {
     self = [super init];
@@ -37,11 +38,18 @@ NSDictionary *_dictionary;
     if (!loaded) return;
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSMutableArray *array = [NSMutableArray array];
     for(ZZArchiveEntry *entry in _archive.entries) {
         if (!entry) continue;
         dict[entry.fileName] = entry;
+        [array addObject:entry.fileName];
     }
-    _dictionary = [NSDictionary dictionaryWithDictionary:dict];
+    _entries = [NSDictionary dictionaryWithDictionary:dict];
+    _names = [NSArray arrayWithArray:array];
+}
+
+- (NSArray *)allNames {
+    return _names;
 }
 
 - (NSUInteger)count {
@@ -54,7 +62,7 @@ NSDictionary *_dictionary;
 }
 
 - (NSData *)dataForName:(NSString*)name {
-    ZZArchiveEntry *entry = _dictionary[name];
+    ZZArchiveEntry *entry = _entries[name];
     return entry.data;
 }
 

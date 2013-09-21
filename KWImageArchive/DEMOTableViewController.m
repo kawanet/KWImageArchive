@@ -20,13 +20,11 @@ KWImageArchive *archive;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSError *err = nil;
     archive = [[KWImageArchive alloc] init];
+    NSError *err = nil;
+
     [archive loadArchiveWithPath:@"iconic.zip" error:&err];
-    
-    if (err) {
-        NSLog(@"%@", err);
-    }
+    if (err) NSLog(@"%@", err);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -34,7 +32,7 @@ KWImageArchive *archive;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return archive.count;
+    return archive.allNames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,7 +40,7 @@ KWImageArchive *archive;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // filename
-    NSString *name = [archive nameAtIndex:indexPath.item];
+    NSString *name = archive.allNames[indexPath.item];
     cell.textLabel.text = name;
     
     // image
