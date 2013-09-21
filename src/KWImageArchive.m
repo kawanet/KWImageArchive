@@ -44,9 +44,6 @@ NSDictionary *_dictionary;
     }
     _dictionary = [NSDictionary dictionaryWithDictionary:dict];
     
-    NSArray *entries = _archive.entries;
-    NSLog(@"entries: %i", entries.count);
-    
     return self;
 }
 

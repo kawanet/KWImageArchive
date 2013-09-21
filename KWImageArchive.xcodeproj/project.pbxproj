@@ -20,6 +20,9 @@
 		1DC07B2B17ED810400D147E2 /* KWImageArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC07B2A17ED810400D147E2 /* KWImageArchive.m */; };
 		1DC07B2E17ED84F700D147E2 /* DEMOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC07B2D17ED84F700D147E2 /* DEMOTableViewController.m */; };
 		1DC07B3417EDA19B00D147E2 /* iconic.zip in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B3317EDA19B00D147E2 /* iconic.zip */; };
+		1DC07B6A17EDAFEE00D147E2 /* KWImageArchive.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B6917EDAFEE00D147E2 /* KWImageArchive.podspec */; };
+		1DC07B6C17EDAFF600D147E2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B6B17EDAFF600D147E2 /* LICENSE */; };
+		1DC07B6E17EDAFFB00D147E2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1DC07B6D17EDAFFB00D147E2 /* README.md */; };
 		BD2D817B135C4886A51D1BEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90BE844D4158450C90557746 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		1DC07B2C17ED84F700D147E2 /* DEMOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOTableViewController.h; sourceTree = "<group>"; };
 		1DC07B2D17ED84F700D147E2 /* DEMOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOTableViewController.m; sourceTree = "<group>"; };
 		1DC07B3317EDA19B00D147E2 /* iconic.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = iconic.zip; sourceTree = "<group>"; };
+		1DC07B6917EDAFEE00D147E2 /* KWImageArchive.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KWImageArchive.podspec; sourceTree = "<group>"; };
+		1DC07B6B17EDAFF600D147E2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1DC07B6D17EDAFFB00D147E2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		90BE844D4158450C90557746 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE31A2A74E0B48F48CD012BF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -70,6 +76,9 @@
 				1DC07AFC17ED806B00D147E2 /* Products */,
 				1DC07B2817ED810400D147E2 /* src */,
 				EE31A2A74E0B48F48CD012BF /* Pods.xcconfig */,
+				1DC07B6B17EDAFF600D147E2 /* LICENSE */,
+				1DC07B6D17EDAFFB00D147E2 /* README.md */,
+				1DC07B6917EDAFEE00D147E2 /* KWImageArchive.podspec */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +198,9 @@
 				1DC07B1517ED806C00D147E2 /* Default-568h@2x.png in Resources */,
 				1DC07B1817ED806C00D147E2 /* MainStoryboard.storyboard in Resources */,
 				1DC07B3417EDA19B00D147E2 /* iconic.zip in Resources */,
+				1DC07B6A17EDAFEE00D147E2 /* KWImageArchive.podspec in Resources */,
+				1DC07B6C17EDAFF600D147E2 /* LICENSE in Resources */,
+				1DC07B6E17EDAFFB00D147E2 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
