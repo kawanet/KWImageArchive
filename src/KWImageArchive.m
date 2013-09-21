@@ -15,13 +15,7 @@ ZZArchive *_archive;
 NSDictionary *_entries;
 NSArray *_names;
 
-- (id)init {
-    self = [super init];
-    self.cache = [[NSMutableDictionary alloc] init];
-    return self;
-}
-
-- (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr {
+NSURL *_pathToURL(NSString *path) {
     NSURL *url;
     if ([path characterAtIndex:0] == '/') {
         url = [NSURL fileURLWithPath:path isDirectory:NO];
@@ -29,6 +23,17 @@ NSArray *_names;
         url = [[NSBundle mainBundle] resourceURL];
         url = [NSURL URLWithString:path relativeToURL:url];
     }
+    return url;
+}
+
+- (id)init {
+    self = [super init];
+    self.cache = [[NSMutableDictionary alloc] init];
+    return self;
+}
+
+- (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr {
+    NSURL *url = _pathToURL(path);
     [self loadArchiveWithURL:url error:errorPtr];
 }
 
