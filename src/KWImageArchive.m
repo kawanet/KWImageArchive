@@ -9,14 +9,7 @@
 #import "KWImageArchive.h"
 #import <zipzap/zipzap.h>
 
-@implementation KWImageArchive
-
-NSMutableDictionary *_cache;
-ZZArchive *_archive;
-NSDictionary *_entries;
-NSArray *_names;
-
-NSURL *_pathToURL(NSString *path) {
+static NSURL *pathToURL(NSString *path) {
     NSURL *url;
     if ([path characterAtIndex:0] == '/') {
         url = [NSURL fileURLWithPath:path isDirectory:NO];
@@ -27,8 +20,16 @@ NSURL *_pathToURL(NSString *path) {
     return url;
 }
 
+@implementation KWImageArchive
+{
+    NSMutableDictionary *_cache;
+    ZZArchive *_archive;
+    NSDictionary *_entries;
+    NSArray *_names;
+}
+
 - (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr {
-    NSURL *url = _pathToURL(path);
+    NSURL *url = pathToURL(path);
     [self loadArchiveWithURL:url error:errorPtr];
 }
 
