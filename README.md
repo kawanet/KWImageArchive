@@ -15,13 +15,19 @@ KWImageArchive *archive = [KWImageArchive archiveWithPath:@"iconic.zip" error:&e
 UIImage *image = [archive imageForName:@"aperture_32x32.png"];
 ```
 
-## DEMO APP
+## DEMO APPLICATION
 
 The demo application includes
 [Iconic](http://somerandomdude.com/work/open-iconic/)
 open source icon set licensed under CC BY-SA.
 
 <img src="https://raw.github.com/kawanet/KWImageArchive/master/public/capture1.png" width="320">
+
+## INSTALLATION
+
+```rb:Podfile
+pod 'KWImageArchive'
+```
 
 ## AUTHOR 
 
