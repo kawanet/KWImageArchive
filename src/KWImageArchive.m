@@ -42,8 +42,11 @@ static NSURL *pathToURL(NSString *path) {
     NSMutableArray *array = [NSMutableArray array];
     for(ZZArchiveEntry *entry in _archive.entries) {
         if (!entry) continue;
-        dict[entry.fileName] = entry;
-        [array addObject:entry.fileName];
+        NSString *name = entry.fileName;
+        if (!dict[name]) {
+            [array addObject:name];
+        }
+        dict[name] = entry;
     }
     
     _entries = [NSDictionary dictionaryWithDictionary:dict];
