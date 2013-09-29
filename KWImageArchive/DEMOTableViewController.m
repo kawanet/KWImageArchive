@@ -13,9 +13,9 @@
 
 @end
 
-@implementation DEMOTableViewController
-
-KWImageArchive *archive;
+@implementation DEMOTableViewController {
+    KWImageArchive *archive;    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
