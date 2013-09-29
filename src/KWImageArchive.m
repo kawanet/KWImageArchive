@@ -22,7 +22,7 @@ static NSURL *pathToURL(NSString *path) {
 
 @implementation KWImageArchive
 {
-    NSMutableDictionary *_cache;
+    NSCache *_cache;
     ZZArchive *_archive;
     NSDictionary *_entries;
     NSArray *_names;
@@ -71,11 +71,11 @@ static NSURL *pathToURL(NSString *path) {
 - (UIImage *)imageForName:(NSString*)name {
     // create empty dictionary if not found
     if (!_cache) {
-        _cache = [NSMutableDictionary dictionary];
+        _cache = [[NSCache alloc] init];
     }
     
     // check cached image available
-    UIImage *cache = _cache[name];
+    UIImage *cache = [_cache objectForKey:name];
     if (cache) return cache;
     
     // restore image
@@ -85,7 +85,7 @@ static NSURL *pathToURL(NSString *path) {
     if (!image) return nil;
     
     // store result to cache
-    _cache[name] = image;
+    [_cache setObject:image forKey:name];
     return image;
 }
 
