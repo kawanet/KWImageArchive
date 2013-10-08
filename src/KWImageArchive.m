@@ -25,7 +25,12 @@ static NSURL *pathToURL(NSString *path) {
     NSCache *_cache;
     ZZArchive *_archive;
     NSDictionary *_entries;
-    NSArray *_names;
+    NSArray *_allNames;
+}
+
+- (NSCache *)cache {
+    if (_cache) return _cache;
+    return _cache = [NSCache new];
 }
 
 - (void)loadArchiveWithPath:(NSString *)path error:(NSError **)errorPtr {
@@ -35,60 +40,59 @@ static NSURL *pathToURL(NSString *path) {
 
 - (void)loadArchiveWithURL:(NSURL *)url error:(NSError **)errorPtr {
     _archive = [ZZArchive archiveWithContentsOfURL:url];
-    BOOL loaded = [_archive load:errorPtr];
-    if (!loaded) return;
+    [_archive load:errorPtr];
+}
+
+- (NSDictionary *)entries {
+    if (_entries) return _entries;
     
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    NSMutableArray *array = [NSMutableArray array];
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    
     for(ZZArchiveEntry *entry in _archive.entries) {
-        if (!entry) continue;
         NSString *name = entry.fileName;
-        if (!dict[name]) {
-            [array addObject:name];
-        }
+        if (!name) continue;
+        if (!name.length) continue;
+        if (dict[name]) continue;
         dict[name] = entry;
     }
     
-    _entries = [NSDictionary dictionaryWithDictionary:dict];
-    _names = [NSArray arrayWithArray:array];
+    return _entries = [NSDictionary dictionaryWithDictionary:dict];
 }
 
 - (NSArray *)allNames {
-    return _names;
-}
-
-- (NSUInteger)count {
-    return _archive.entries.count;
-}
-
-- (NSString *)nameAtIndex:(NSUInteger)index {
-    ZZArchiveEntry *entry = _archive.entries[index];
-    return entry.fileName;
+    if (_allNames) return _allNames;
+    
+    NSMutableArray *array = [NSMutableArray new];
+    NSMutableDictionary *check = [NSMutableDictionary new];
+    
+    for(ZZArchiveEntry *entry in _archive.entries) {
+        NSString *name = entry.fileName;
+        if (!name) continue;
+        if (!name.length) continue;
+        if (check[name]) continue;
+        [array addObject:name];
+    }
+    
+    return _allNames = [NSArray arrayWithArray:array];
 }
 
 - (NSData *)dataForName:(NSString*)name {
-    ZZArchiveEntry *entry = _entries[name];
+    ZZArchiveEntry *entry = self.entries[name];
     return entry.data;
 }
 
 - (UIImage *)imageForName:(NSString*)name {
-    // create empty dictionary if not found
-    if (!_cache) {
-        _cache = [[NSCache alloc] init];
-    }
+    UIImage *cached = [self.cache objectForKey:name];
+    if (cached) return cached;
     
-    // check cached image available
-    UIImage *cache = [_cache objectForKey:name];
-    if (cache) return cache;
-    
-    // restore image
     NSData *data = [self dataForName:name];
     if (!data) return nil;
+
     UIImage *image = [UIImage imageWithData:data];
     if (!image) return nil;
+    if (!image.size.width) return nil;
     
-    // store result to cache
-    [_cache setObject:image forKey:name];
+    [self.cache setObject:image forKey:name];
     return image;
 }
 
